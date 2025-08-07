@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
-const user = require('./model/user');
-const logger = require('./loggers/logger');
-const responseInfo = require('./constants/responseInfo');
+const user = require('../model/user');
+const logger = require('../loggers/logger');
+const responseInfo = require('../constants/responseInfo');
 require("dotenv").config();
 
 

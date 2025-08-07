@@ -1,6 +1,7 @@
-const userService = require('./service/userService');
-const { httpCodes, responseInfo} = require('./constants');
-const logger = require('./loggers/logger');
+const userService = require('../service/userService');
+const   responseInfo = require('../constants/responseInfo');
+const httpCodes = require('../constants/httpConstants');
+const logger = require('../loggers/logger');
 
 const enrollUser = async(req,res) => {
     try{
@@ -57,7 +58,7 @@ const viewUserProfile = async(req,res) => {
     try{
       const email = req.params.email;
       logger.info(`SERVICE - ${responseInfo.SERVICE} : ${req.URL}`);
-      const userDetails = await userService.viewUserProfile(email);
+      const userDetails = await userService.userProfile(email);
       return res.status(httpCodes.SUCCESS).json({userDetails});
     }
     catch(err){
