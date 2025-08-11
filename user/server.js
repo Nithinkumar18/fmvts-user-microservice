@@ -1,12 +1,11 @@
-const app = express();
 const cors = require('cors');
-const userRoutes = require('./src/routes/userRoutes');
+const userRoutes = require('./src/routes/userRoutes');  
 const express = require('express');
 const mongoose = require('mongoose');
 const logger = require('./src/loggers/logger');
 const messageInfo = require('./src/constants/responseInfo');
 require('dotenv').config();
-
+const app = express();
 
 app.use(express.json());
 app.use(cors());
