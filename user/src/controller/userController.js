@@ -5,8 +5,9 @@ const logger = require('../loggers/logger');
 
 const enrollUser = async(req,res) => {
     try{
+        
          const userData = req.body;
-         logger.info(`SERVICE - ${responseInfo.SERVICE} : ${req.URL}`);
+         logger.info(`SERVICE - ${responseInfo.SERVICE} : ${req.path}`);
          const enrolledUser = await userService.registerUser(userData);
          if(enrolledUser.user_id){
             logger.info(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_REGESTRATION_SUCCESS}`)
