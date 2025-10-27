@@ -9,7 +9,7 @@ const registerUser = async (_user) => {
 
     try {
          const preEncrypted = _user.password;
-         const encryptedPass = hashPassword(preEncrypted);
+         const encryptedPass = await hashPassword(preEncrypted);
          _user.password = encryptedPass;
         const _newUser = await user.create(_user);
 
@@ -20,7 +20,7 @@ const registerUser = async (_user) => {
         }
     }
     catch (err) {
-        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_REGESTRATION_FAIL}`);
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_REGESTRATION_FAIL}`,err);
         throw new Error(responseInfo.USER_REGESTRATION_FAIL);
     }
 
@@ -38,7 +38,7 @@ const updateUser = async (user_id, updateInfo) => {
         }
     }
     catch (err) {
-        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_FAIL}`);
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_FAIL}`,err);
         throw new Error(responseInfo.USER_UPDATE_FAIL);
     }
 }
@@ -58,15 +58,15 @@ const deleteUser = async (id) => {
         }
     }
     catch (err) {
-        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_NOT_FOUND}`);
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_NOT_FOUND}`,err);
         throw new Error(responseInfo.USER_NOT_FOUND);
     }
 }
 
 
-const hashPassword = (pwd) => {
+const hashPassword = async (pwd) => {
     const hashRounds = parseInt(process.env.hashRounds,10);
-    const encryptedPassword = bcrypt.hashSync(pwd,hashRounds);
+    const encryptedPassword = await bcrypt.hash(pwd,hashRounds);
     return encryptedPassword;
 
 }
@@ -79,7 +79,7 @@ const userProfile = async(uemail) => {
         return validUser;
     }
     catch(err){
-        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.ERR_USER_DATA}`);
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.ERR_USER_DATA}`,err);
        throw new Error(responseInfo.ERR_USER_DATA);
     }
 
