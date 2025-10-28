@@ -6,6 +6,12 @@ const info = {
     USER_UPDATE_SUCCESS: "user profile updation success",
     USER_UPDATE_FAIL: "user profile update failed",
     USER_DEACTIVATION_SUCCESS: "user deactivation success",
+    ACCESS_DENIED: "You do not have the required permissions to perform this action; please contact support or an administrator for assistance if you believe this is an error",
     ERR_USER_DATA: "error fetching user data",
+    ERROR_VALIDATING_ROLE: "Role validation failed due to issue at server Please try again after some time",
+    ROLE_VALIDATION: "user role validation success",
+    ROLE_VALIDATION_FAIL: "user role validation failed"
+
+
 }
 module.exports = info;

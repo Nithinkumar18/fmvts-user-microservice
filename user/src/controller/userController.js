@@ -56,9 +56,10 @@ const deactivateUser = async(req,res) => {
 }
 
 const viewUserProfile = async(req,res) => {
+   
     try{
       const email = req.params.email;
-      logger.info(`SERVICE - ${responseInfo.SERVICE} : ${req.URL}`);
+      logger.info(`SERVICE - ${responseInfo.SERVICE}`);
       const userDetails = await userService.userProfile(email);
       return res.status(httpCodes.SUCCESS).json({userDetails});
     }
