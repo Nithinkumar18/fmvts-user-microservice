@@ -10,7 +10,9 @@ const info = {
     ERR_USER_DATA: "error fetching user data",
     ERROR_VALIDATING_ROLE: "Role validation failed due to issue at server Please try again after some time",
     ROLE_VALIDATION: "user role validation success",
-    ROLE_VALIDATION_FAIL: "user role validation failed"
+    ROLE_VALIDATION_FAIL: "user role validation failed",
+     TOKEN_UNDEFINED: "Authentication token missing or improperly formatted. Please log in and try again.",
+   TOKEN_EXPIRED: "Your authentication token has expired or is malformed. Please log in again to continue.",
 
 
 }
