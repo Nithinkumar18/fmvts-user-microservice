@@ -72,11 +72,17 @@ const hashPassword = async (pwd) => {
 }
 
 const userProfile = async(uemail) => {
-
     try{
+        if(uemail.endsWith(".com")){
        const validUser = await user.findOne({email:uemail});
-       logger.info(`SERVICE - ${responseInfo.SERVICE} `);
+       logger.info(`SERVICE - ${responseInfo.SERVICE} | User info lookup initiated `);
         return validUser;
+        }
+        else{
+            const validUser = await user.findOne({'_id':uemail});
+            logger.info(`SERVICE - ${responseInfo.SERVICE} | User info lookup initiated `);
+           return validUser;
+        }
     }
     catch(err){
         logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.ERR_USER_DATA}`,err);
