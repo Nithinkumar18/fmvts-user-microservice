@@ -27,23 +27,42 @@ const registerUser = async (_user) => {
 }
 
 const updateUser = async (user_id, updateInfo) => {
+
     try {
-        const updatedUserData = await user.findByIdAndUpdate({ '_id': user_id }, { $set: updateInfo });
-        const { updatedAt, _id } = updatedUserData;
-        logger.info(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_SUCCESS}`);
-        logger.info(`USER ${_id} INFO updated at ${updatedAt}`);
-        return {
-            userId: _id,
-            updatedAt: updatedAt
-        }
+            const updatedUserData = await user.findByIdAndUpdate({ '_id': user_id }, { $set: updateInfo });
+            const { updatedAt, _id } = updatedUserData;
+            logger.info(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_SUCCESS}`);
+            logger.info(`USER ${_id} INFO updated at ${updatedAt}`);
+            return {
+                userId: _id,
+                updatedAt: updatedAt
+            }
+        
     }
     catch (err) {
-        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_FAIL}`,err);
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_UPDATE_FAIL}`, err);
         throw new Error(responseInfo.USER_UPDATE_FAIL);
     }
 }
 
 
+const unassignvehicleDetails = async(userId,unassignInfo) => {
+    try{
+        const unassignedData  = await user.findByIdAndUpdate({'_id':userId},{$unset:unassignInfo});
+        const { updatedAt, _id } = unassignedData;
+            logger.info(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.VEHICLE_DATA_UNASSIGN_SUCCESS}`);
+            logger.info(`USER ${_id} INFO updated at ${updatedAt}`);
+            return {
+                userId: _id,
+                updatedAt: updatedAt
+            }
+
+    }
+    catch(err){
+        logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.VEHICLE_DATA_UNASSIGN_FAIL}`, err);
+        throw new Error(responseInfo.VEHICLE_DATA_UNASSIGN_FAIL);
+    }
+}
 const deleteUser = async (id) => {
     try {
 
@@ -94,5 +113,6 @@ module.exports = {
     registerUser,
     updateUser,
     deleteUser,
-    userProfile
+    userProfile,
+    unassignvehicleDetails
 }
