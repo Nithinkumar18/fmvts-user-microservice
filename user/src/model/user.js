@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
         default: "active"
     },
     assignedVehicleId:{
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
 
     }
 },{timestamps: true});

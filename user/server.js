@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const logger = require('./src/loggers/logger');
 const messageInfo = require('./src/constants/responseInfo');
 require('dotenv').config();
+const {consumeVehicleAssignmentInfo} = require('./src/events/subscribeToVehicleDetails');
 const app = express();
 
 app.use(express.json());
@@ -22,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URL)
         
         logger.info(`${messageInfo.SERVICE} started on PORT ${PORT} 👤`);
     })
+     consumeVehicleAssignmentInfo();
 }).catch((err) => 
 {
     logger.error(`${messageInfo.SERVICE} failed  to connect  database `,err);

@@ -11,8 +11,17 @@ const info = {
     ERROR_VALIDATING_ROLE: "Role validation failed due to issue at server Please try again after some time",
     ROLE_VALIDATION: "user role validation success",
     ROLE_VALIDATION_FAIL: "user role validation failed",
-     TOKEN_UNDEFINED: "Authentication token missing or improperly formatted. Please log in and try again.",
-   TOKEN_EXPIRED: "Your authentication token has expired or is malformed. Please log in again to continue.",
+    TOKEN_UNDEFINED: "Authentication token missing or improperly formatted. Please log in and try again.",
+    TOKEN_EXPIRED: "Your authentication token has expired or is malformed. Please log in again to continue.",
+    QUEUE_CONN_SUCESS: "Queue connection successfull",
+    USER_EVENT: "Vehicle assignment details from vehicle service received successfully",
+    DRIVER_MSG_QUEUE: "Publish-Vehicle-Details",
+    QUEUE_CON_FAIL: "Connection to message-queue Failed",
+    QUEUE_CON_CLOSE: "Queue Connection closed",
+    VEHICLE_DETAILS_UP_SUCCESS_DRIVER: "Assigned vehicleId has been synced with the driver profile",
+    VEHICLE_DETAILS_UP_FAIL_DRIVER: "Unable to sync vehicleId with the driver profile",
+    VEHICLE_DATA_UNASSIGN_SUCCESS: "Vehicle Details has been unsynced successfully",
+    VEHICLE_DATA_UNASSIGN_FAIL: "Unable to unsync vehicle data with the driver profile"
 
 
 }
