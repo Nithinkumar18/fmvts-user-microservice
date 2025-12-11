@@ -16,7 +16,16 @@ const consumeVehicleAssignmentInfo = async () => {
       if (!data) return;
       receivedVehicleInfo = JSON.parse(data.content.toString());
       logger.info(`SERVICE - ${process.env.QUEUE} : ${rInfo.USER_EVENT}`);
+      if (receivedVehicleInfo.availabilityStatus) {
+        const updateDriveravailablility = await userService.updateUser(receivedVehicleInfo.user_id, { availabilityStatus: receivedVehicleInfo.availabilityStatus });
+        if (updateDriveravailablility.availabilityStatus === receivedVehicleInfo.availabilityStatus) {
+          logger.info(`SERVICE - ${rInfo.SERVICE} - ${process.env.QUEUE} : ${rInfo.DRIVER_AVAILABILITY_STATUS_UP}`);
 
+        }
+        else {
+          logger.info(`SERVICE - ${rInfo.SERVICE} - ${process.env.QUEUE} : ${rInfo.DRIVER_AVAILABILITY_STATUS_UPDATE_FAIL}`);
+        }
+      }
       if (receivedVehicleInfo.assignedVehicleId === "") {
         const updateDriverAssigneDetails = await userService.unassignvehicleDetails(receivedVehicleInfo.user_id, { assignedVehicleId: receivedVehicleInfo.assignedVehicleId });
         if (updateDriverAssigneDetails) {
