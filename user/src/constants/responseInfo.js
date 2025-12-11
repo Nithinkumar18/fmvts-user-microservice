@@ -21,7 +21,9 @@ const info = {
     VEHICLE_DETAILS_UP_SUCCESS_DRIVER: "Assigned vehicleId has been synced with the driver profile",
     VEHICLE_DETAILS_UP_FAIL_DRIVER: "Unable to sync vehicleId with the driver profile",
     VEHICLE_DATA_UNASSIGN_SUCCESS: "Vehicle Details has been unsynced successfully",
-    VEHICLE_DATA_UNASSIGN_FAIL: "Unable to unsync vehicle data with the driver profile"
+    VEHICLE_DATA_UNASSIGN_FAIL: "Unable to unsync vehicle data with the driver profile",
+    DRIVER_AVAILABILITY_STATUS_UP: "Driver availability status has been successfully updated based on the status received from the Trip Service",
+    DRIVER_AVAILABILITY_STATUS_UPDATE_FAIL: "Unable to update driver availability status, received from Trip Service"
 
 
 }

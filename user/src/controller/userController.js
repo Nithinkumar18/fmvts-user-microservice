@@ -15,7 +15,8 @@ const enrollUser = async(req,res) => {
          }
     }
     catch(err){
-           return res.status(httpCodes.INTERNAL_SERVER_ERROR).json(err);
+          
+           return res.status(httpCodes.INTERNAL_SERVER_ERROR).json(err.message);
     }
 }
 

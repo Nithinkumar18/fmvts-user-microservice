@@ -21,7 +21,7 @@ const registerUser = async (_user) => {
     }
     catch (err) {
         logger.error(`SERVICE - ${responseInfo.SERVICE} : ${responseInfo.USER_REGESTRATION_FAIL}`,err);
-        throw new Error(responseInfo.USER_REGESTRATION_FAIL);
+        throw err;
     }
 
 }
