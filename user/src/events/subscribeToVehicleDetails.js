@@ -53,7 +53,7 @@ const consumeVehicleAssignmentInfo = async () => {
   }
   catch (error) {
     const code = error.errors?.[0]?.code || error.code || 'UNKNOWN_ERROR';
-    logger.error(`SERVICE -  ${rInfo.SERVICE} - ${process.env.QUEUE} || ${code}`);
+    logger.error(`SERVICE -  ${rInfo.SERVICE} - ${process.env.QUEUE} - ${rInfo.QUEUE_CON_FAIL} || ${code}`);
   }
 
 
