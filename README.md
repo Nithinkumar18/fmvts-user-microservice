@@ -64,6 +64,6 @@ This ensures **eventual consistency** without tight coupling between services.
 
 Start Application
 
-npm start
+      npm start
   
 
