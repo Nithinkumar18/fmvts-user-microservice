@@ -58,10 +58,12 @@ This ensures **eventual consistency** without tight coupling between services.
 ▶️ Running the Service
    
    Install Dependencies
-    npm install
+    
+      npm install
 ---
 
 Start Application
+
 npm start
   
 
