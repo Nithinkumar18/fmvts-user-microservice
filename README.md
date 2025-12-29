@@ -56,10 +56,14 @@ This ensures **eventual consistency** without tight coupling between services.
 ---
 
 ▶️ Running the Service
-Install Dependencies
-  npm install
+   
+   Install Dependencies
+    
+      npm install
+---
 
 Start Application
-npm start
+
+      npm start
   
 
